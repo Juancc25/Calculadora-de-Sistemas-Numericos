@@ -1,6 +1,9 @@
 package presentacion;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -12,8 +15,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public VistaPrincipal(Modelo m) {
         modelo = m;
         initComponents();
+        asignarEventos();
+        insertarLogo();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -33,160 +38,147 @@ public class VistaPrincipal extends javax.swing.JFrame {
         radioBotonHexaD = new javax.swing.JRadioButton();
         etiquetaResultado = new javax.swing.JLabel();
         cajaResultado = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        boton1 = new javax.swing.JButton();
+        logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Calculadora de Sistemas Numéricos");
 
-        etiqueta.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        panel.setBackground(new java.awt.Color(102, 102, 102));
+        panel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        etiqueta.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        etiqueta.setForeground(new java.awt.Color(255, 255, 255));
         etiqueta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiqueta.setText("Ingrese el número: ");
 
-        cajaNumero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cajaNumeroActionPerformed(evt);
-            }
-        });
-
+        radioBotonBinarioD.setBackground(new java.awt.Color(102, 102, 102));
         grupoRadioBoton1.add(radioBotonBinarioD);
+        radioBotonBinarioD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioBotonBinarioD.setForeground(new java.awt.Color(255, 255, 255));
         radioBotonBinarioD.setText("Binario");
-        radioBotonBinarioD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioBotonBinarioDActionPerformed(evt);
-            }
-        });
 
+        radioBotonDecimalD.setBackground(new java.awt.Color(102, 102, 102));
         grupoRadioBoton1.add(radioBotonDecimalD);
+        radioBotonDecimalD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioBotonDecimalD.setForeground(new java.awt.Color(255, 255, 255));
         radioBotonDecimalD.setText("Decimal");
-        radioBotonDecimalD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioBotonDecimalDActionPerformed(evt);
-            }
-        });
 
+        radioBotonOctalH.setBackground(new java.awt.Color(102, 102, 102));
         grupoRadioBoton2.add(radioBotonOctalH);
+        radioBotonOctalH.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioBotonOctalH.setForeground(new java.awt.Color(255, 255, 255));
         radioBotonOctalH.setText("Octal");
-        radioBotonOctalH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioBotonOctalHActionPerformed(evt);
-            }
-        });
 
+        radioBotonHexaH.setBackground(new java.awt.Color(102, 102, 102));
         grupoRadioBoton2.add(radioBotonHexaH);
+        radioBotonHexaH.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioBotonHexaH.setForeground(new java.awt.Color(255, 255, 255));
         radioBotonHexaH.setText("Hexadecimal");
-        radioBotonHexaH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioBotonHexaHActionPerformed(evt);
-            }
-        });
 
+        radioBotonBinarioH.setBackground(new java.awt.Color(102, 102, 102));
         grupoRadioBoton2.add(radioBotonBinarioH);
+        radioBotonBinarioH.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioBotonBinarioH.setForeground(new java.awt.Color(255, 255, 255));
         radioBotonBinarioH.setText("Binario");
 
+        radioBotonOctalD.setBackground(new java.awt.Color(102, 102, 102));
         grupoRadioBoton1.add(radioBotonOctalD);
+        radioBotonOctalD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioBotonOctalD.setForeground(new java.awt.Color(255, 255, 255));
         radioBotonOctalD.setText("Octal");
-        radioBotonOctalD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioBotonOctalDActionPerformed(evt);
-            }
-        });
 
+        radioBotonDecimalH.setBackground(new java.awt.Color(102, 102, 102));
         grupoRadioBoton2.add(radioBotonDecimalH);
+        radioBotonDecimalH.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioBotonDecimalH.setForeground(new java.awt.Color(255, 255, 255));
         radioBotonDecimalH.setText("Decimal");
 
+        radioBotonHexaD.setBackground(new java.awt.Color(102, 102, 102));
         grupoRadioBoton1.add(radioBotonHexaD);
+        radioBotonHexaD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioBotonHexaD.setForeground(new java.awt.Color(255, 255, 255));
         radioBotonHexaD.setText("Hexadecimal");
-        radioBotonHexaD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioBotonHexaDActionPerformed(evt);
-            }
-        });
 
-        etiquetaResultado.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        etiquetaResultado.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        etiquetaResultado.setForeground(new java.awt.Color(255, 255, 255));
         etiquetaResultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaResultado.setText("El resultado es: ");
 
-        cajaResultado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cajaResultadoActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Convertir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        boton1.setText("Convertir");
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
+                .addGap(221, 221, 221)
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(186, 186, 186))
+            .addGroup(panelLayout.createSequentialGroup()
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
+                        .addComponent(cajaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etiqueta)
-                            .addComponent(cajaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(99, 99, 99))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                        .addContainerGap()
+                            .addComponent(etiquetaResultado)
+                            .addComponent(cajaResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addComponent(etiqueta)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(radioBotonDecimalD)
                             .addComponent(radioBotonHexaD)
                             .addComponent(radioBotonBinarioD)
                             .addComponent(radioBotonOctalD))
-                        .addGap(131, 131, 131)))
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cajaResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(etiquetaResultado))
-                        .addContainerGap(55, Short.MAX_VALUE))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addGap(137, 137, 137)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(radioBotonOctalH)
                             .addComponent(radioBotonBinarioH)
                             .addComponent(radioBotonDecimalH)
                             .addComponent(radioBotonHexaH))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(199, 199, 199))
+                        .addContainerGap(51, Short.MAX_VALUE))))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
-                .addGap(114, 114, 114)
+                .addGap(10, 10, 10)
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiqueta)
                     .addComponent(etiquetaResultado))
                 .addGap(18, 18, 18)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cajaResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cajaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(79, 79, 79)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radioBotonBinarioH)
-                    .addComponent(radioBotonBinarioD))
+                    .addComponent(cajaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cajaResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(64, 64, 64)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radioBotonBinarioD)
+                    .addComponent(radioBotonBinarioH))
                 .addGap(18, 18, 18)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radioBotonOctalH)
-                    .addComponent(radioBotonOctalD))
+                    .addComponent(radioBotonOctalD)
+                    .addComponent(radioBotonOctalH))
                 .addGap(18, 18, 18)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radioBotonDecimalH)
-                    .addComponent(radioBotonDecimalD))
+                    .addComponent(radioBotonDecimalD)
+                    .addComponent(radioBotonDecimalH))
                 .addGap(18, 18, 18)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radioBotonHexaH)
-                    .addComponent(radioBotonHexaD))
-                .addGap(32, 32, 32)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                    .addComponent(radioBotonHexaD)
+                    .addComponent(radioBotonHexaH))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -197,56 +189,21 @@ public class VistaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cajaNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaNumeroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cajaNumeroActionPerformed
-
-    private void radioBotonBinarioDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBotonBinarioDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_radioBotonBinarioDActionPerformed
-
-    private void radioBotonOctalHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBotonOctalHActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_radioBotonOctalHActionPerformed
-
-    private void radioBotonOctalDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBotonOctalDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_radioBotonOctalDActionPerformed
-
-    private void cajaResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaResultadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cajaResultadoActionPerformed
-
-    private void radioBotonHexaHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBotonHexaHActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_radioBotonHexaHActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void radioBotonHexaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBotonHexaDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_radioBotonHexaDActionPerformed
-
-    private void radioBotonDecimalDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBotonDecimalDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_radioBotonDecimalDActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton1;
     private javax.swing.JTextField cajaNumero;
     private javax.swing.JTextField cajaResultado;
     private javax.swing.JLabel etiqueta;
     private javax.swing.JLabel etiquetaResultado;
     private javax.swing.ButtonGroup grupoRadioBoton1;
     private javax.swing.ButtonGroup grupoRadioBoton2;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel logo;
     private javax.swing.JPanel panel;
     private javax.swing.JRadioButton radioBotonBinarioD;
     private javax.swing.JRadioButton radioBotonBinarioH;
@@ -258,6 +215,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioBotonOctalH;
     // End of variables declaration//GEN-END:variables
 
+    private void insertarLogo(){
+        ImageIcon imagen1 = new ImageIcon("Logo.png");
+        
+        getLogo().setIcon(new ImageIcon(imagen1.getImage().getScaledInstance(getLogo().getWidth(),getLogo().getHeight(),Image.SCALE_SMOOTH)));
+    }
+    
     public Modelo getModelo(){
         return modelo;
     }
@@ -269,8 +232,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         return control;
     }
 
-    public JButton getjButton1() {
-        return jButton1;
+    public JButton getBoton1() {
+        return boton1;
+    }
+
+    public JLabel getLogo() {
+        return logo;
     }
 
     public JRadioButton getRadioBotonBinarioD() {
@@ -317,5 +284,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         return cajaNumero;
     }
     
-    
+    private void asignarEventos() {
+        boton1.addActionListener(getControl());
+    }
 }
