@@ -43,6 +43,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora de Sistemas Numéricos");
+        setResizable(false);
 
         panel.setBackground(new java.awt.Color(102, 102, 102));
         panel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -189,7 +190,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -286,5 +287,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
     
     private void asignarEventos() {
         boton1.addActionListener(getControl());
+        radioBotonBinarioD.addActionListener(getControl());
+        radioBotonOctalD.addActionListener(getControl());
+        radioBotonDecimalD.addActionListener(getControl());
+        radioBotonHexaD.addActionListener(getControl());
     }
 }
